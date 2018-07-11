@@ -22,5 +22,4 @@ Create a mysql database for example `myblog`
 and done!
 
 First admin user is automatically create you can login user these credentials
-`email : admin@gmail.com
-password : admin`
+`email : admin@gmail.com,password : admin`
