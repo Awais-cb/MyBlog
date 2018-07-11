@@ -15,7 +15,7 @@ Create a mysql database for example `myblog`
 
 `npm install`
 
-## Set up Files/Images dir via symbolic link
+## Set up Files/Images directory via symbolic link
 
 Laravel stores images in storage/app/public folder but that is not accessible from browser so we will have to create symlink and this directory will be created after creating symlink public/storage using this command
 
