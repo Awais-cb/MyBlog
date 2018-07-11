@@ -82,7 +82,11 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|string|max:191',
+            'email' => 'required|string|email|max:191|unique:users',
+            'change_pw' => 'required|string|min:6|confirmed',
+        ]);
     }
 
     /**
