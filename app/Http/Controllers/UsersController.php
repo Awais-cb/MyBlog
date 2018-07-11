@@ -68,7 +68,9 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = new User();
+        $userToEdit = $user->find($id);
+        return view('dashboard.edit_profile')->with('user',$userToEdit);
     }
 
     /**

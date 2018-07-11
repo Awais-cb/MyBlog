@@ -1,3 +1,3 @@
-<footer class="container-fluid text-center navbar-inverse">
+<footer class="container-fluid text-center">
   <p>&copy; {{ config('app.name','MyBlog') }}</p>
 </footer>

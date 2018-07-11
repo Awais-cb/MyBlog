@@ -29,6 +29,6 @@ class HomeController extends Controller
         $userData = $user->find($userid);
 
         // doing this because we added that relationship
-        return view('home')->with('posts',$userData->posts);
+        return view('dashboard.home')->with('posts',$userData->posts);
     }
 }

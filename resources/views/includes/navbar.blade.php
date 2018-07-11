@@ -30,9 +30,9 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
-                @if(!Auth::guest())
+                @auth
                     <li><a href="{{ route('posts.create') }}">Create Post</a></li>
-                @endif
+                @endauth
                 @if (Auth::guest())
                     <li><a href="{{ route('login') }}">Login</a></li>
                     <li><a href="{{ route('register') }}">Register</a></li>
@@ -48,6 +48,7 @@
                             @if(Auth::user()->user_role == 1)
                                 <li><a href="/users">Manage users</a></li>
                             @endif
+                            <li><a href="/users/{{Auth::user()->id}}/edit">Edit profile</a></li>
 
                             <li>
                                 <a href="{{ route('logout') }}"

@@ -14,13 +14,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-        @include('includes/navbar')
-        <div class="container">
-            @include('includes.messages')
-            @yield('content')
+        <div id='app'>
+          @include('includes/navbar')
+          <div class="container">
+              @include('includes.messages')
+              @yield('content')
+          </div>
+          @include('includes/footer')
         </div>
-        @include('includes/footer')
-   
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
@@ -41,8 +42,9 @@
         
         /* Add a gray background color and some padding to the footer */
         footer {
-          background-color: #f2f2f2;
-          padding: 25px;
+          background-color: #272727;
+          padding: 10px;
+          margin-top :30px;
         }
         
       .carousel-inner img {
