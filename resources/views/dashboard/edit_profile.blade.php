@@ -10,11 +10,11 @@
             <input placeholder="Email" name="email" type="email" value="{{$user->email}}" id="email" class="form-control"> 
 
             <label for="change password">Change password</label> 
-            <input placeholder="Change password" name="change_pw" type="password" value="" class="form-control">
+            <input placeholder="Change password" name="change_password" type="password" value="" class="form-control">
 
             <label for="confirm password">Confirm password</label> 
             
-            <input placeholder="Confirm password" name="confirm_pw" type="password" value="" class="form-control">
+            <input placeholder="Confirm password" name="confirm_password" type="password" value="" class="form-control">
             <input name="_method" type="hidden" value="PUT"> 
         </div> 
         
