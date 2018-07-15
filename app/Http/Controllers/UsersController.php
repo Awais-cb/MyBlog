@@ -82,10 +82,24 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = new User();
+        $userToUpdate = $user->find($id);
+        if(auth()->user()->id != $userToUpdate->id){
+            return redirect('/home')->with('error','Not authorized for this action!');
+        }
         $this->validate($request,[
-            'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:users',
+            'name' => 'required|string|max:80',
+            'email' => 'required|string|email|max:150'
         ]);
+        
+        if($userToUpdate->email != $request->email){
+            $this->validate($request,[
+                'email' => 'unique:users'
+            ]);            
+        }
+
+
+        // exit(var_dump($request->change_password));
     }
 
     /**

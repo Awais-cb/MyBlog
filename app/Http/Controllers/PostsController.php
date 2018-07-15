@@ -133,12 +133,21 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $post = new Post();
+        $postToUpdate = $post->find($id);
+        if(auth()->user()->id != $postToUpdate->user_id){
+            return redirect('/posts')->with('error','Your are not authorized to edit this post!');
+        }
+
         $this->validate($request,[
             'title'=>'required|max:191',
             'body'=>'required',
             'cover_image'=>'image|nullable|max:1999'
         ]);
 
+        $postToUpdate->title = $request->input('title');
+        $postToUpdate->body = $request->input('body');
+        
         // Preparing new file to update
         if($request->hasFile('cover_image')){
             $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
@@ -147,11 +156,6 @@ class PostsController extends Controller
             $fileNameToUpdate = $filename.'_'.time().'.'.$fileExt;
             $path = $request->file('cover_image')->storeAs('public/cover_images',$fileNameToUpdate);
         }
-        
-        $post = new Post();
-        $postToUpdate = $post->find($id);
-        $postToUpdate->title = $request->input('title');
-        $postToUpdate->body = $request->input('body');
 
         if($request->hasFile('cover_image')){
             // Removing old image from db

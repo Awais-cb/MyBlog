@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 	<h1>Update details</h1>
-    <form method="POST" action="/users/1" accept-charset="UTF-8" enctype="multipart/form-data">
+    <form method="POST" action="/users/{{$user->id}}" accept-charset="UTF-8" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label for="name">name</label> 
