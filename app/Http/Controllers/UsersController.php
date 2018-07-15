@@ -87,19 +87,32 @@ class UsersController extends Controller
         if(auth()->user()->id != $userToUpdate->id){
             return redirect('/home')->with('error','Not authorized for this action!');
         }
+
+        // Updating name
         $this->validate($request,[
             'name' => 'required|string|max:80',
             'email' => 'required|string|email|max:150'
         ]);
+        $userToUpdate->name = $request->name;
         
+        // Updating email
         if($userToUpdate->email != $request->email){
             $this->validate($request,[
                 'email' => 'unique:users'
             ]);            
+            $userToUpdate->email = $request->email;
+        }
+        
+        // Updating password
+        if(!empty($request->password) || $request->password!=NULL){
+           $this->validate($request,[
+                'password' => 'required|string|min:6|confirmed',
+           ]);
+            $userToUpdate->password = bcrypt($request->password);
         }
 
-
-        // exit(var_dump($request->change_password));
+        $userToUpdate->save();
+        return redirect('/users/'.$id.'/edit')->with('success','Your details has been updated!');
     }
 
     /**

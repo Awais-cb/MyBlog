@@ -4,17 +4,19 @@
     <form method="POST" action="/users/{{$user->id}}" accept-charset="UTF-8" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
+            
             <label for="name">name</label> 
             <input placeholder="Name" name="name" type="text" value="{{$user->name}}" id="name" class="form-control"> 
+            
             <label for="email">Email</label> 
             <input placeholder="Email" name="email" type="email" value="{{$user->email}}" id="email" class="form-control"> 
 
             <label for="change password">Change password</label> 
-            <input placeholder="Change password" name="change_password" type="password" value="" class="form-control">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Change password">
 
             <label for="confirm password">Confirm password</label> 
+            <input id="password-confirm" name="password_confirmation" type="password" class="form-control" placeholder="Confirm password">
             
-            <input placeholder="Confirm password" name="confirm_password" type="password" value="" class="form-control">
             <input name="_method" type="hidden" value="PUT"> 
         </div> 
         
