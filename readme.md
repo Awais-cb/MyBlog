@@ -28,4 +28,6 @@ Laravel stores images in storage/app/public folder but that is not accessible fr
 and done!
 
 First admin user is automatically create you can login user these credentials
-`email : admin@gmail.com,password : admin`
+`email : admin@gmail.com`
+`password : admin`
+You can edit these details after loggin in
