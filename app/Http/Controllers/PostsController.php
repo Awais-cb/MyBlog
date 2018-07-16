@@ -33,7 +33,7 @@ class PostsController extends Controller
         // $posts = DB::select('SELECT * FROM posts');
         // Fetching data using elequent
 
-        // with elequent we can either use inheritance or we can use composition
+        // with elequent we can either use this way or we can create object
         // $posts = Post::orderBy('created_at','DESC')->paginate(3);
 
         $post = new Post();
