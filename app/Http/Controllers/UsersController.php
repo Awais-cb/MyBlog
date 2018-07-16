@@ -35,7 +35,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('errors.404');
     }
 
     /**
@@ -46,7 +46,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return view('errors.404');
     }
 
     /**
@@ -57,7 +57,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('errors.404');
     }
 
     /**
