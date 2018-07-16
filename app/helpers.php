@@ -20,8 +20,8 @@
 		}
 	}
 
-	if (! function_exists('dump')) {
-		function dump($data) {
+	if (! function_exists('dump_arr')) {
+		function dump_arr($data) {
 	    	echo "<pre>";
 	    	var_dump($data);
 	    	echo "</pre>";
